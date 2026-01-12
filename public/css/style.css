@@ -1,0 +1,131 @@
+
+    .slide-container {
+      position: relative;
+      width: 100%;
+      height: 100vh; /* Full viewport height */
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures image covers entire container */
+    }
+
+    /* Navigation Arrows */
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .nav-btn:hover {
+      background: rgba(0, 0, 0, 0.8);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .prev-btn {
+      left: 30px;
+    }
+
+    .next-btn {
+      right: 30px;
+    }
+
+    /* Slide Counter */
+    .slide-counter {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      z-index: 10;
+    }
+
+    /* Dots Indicator */
+    .dots-container {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      z-index: 10;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      background: white;
+      transform: scale(1.3);
+    }
+
+    .dot:hover {
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Content Overlay */
+    .slide-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      z-index: 5;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Dark overlay for better text readability */
+    .slide::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
+
+    .slide-content {
+      z-index: 2;
+    }
